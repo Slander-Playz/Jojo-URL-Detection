@@ -14,7 +14,7 @@ from urllib.parse import urlparse
 import streamlit as st
 
 
-loaded_model = pickle.load(open('C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/model/trained_model.sav', 'rb'))
+loaded_model = pickle.load(open('trained_model.sav', 'rb'))
 
 
 def having_ip_address(url):
