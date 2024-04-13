@@ -685,7 +685,7 @@ def mainly(url):
     return status
 
 #loaded_model = pickle.load(open('C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/hosting/Jojo-URL-Detection/model/trained_model.sav', 'rb'))
-loaded_model = pickle.load(open("trained_model.sav", 'rb'))
+loaded_model = pickle.load(open('trained_model.sav', 'rb'))
 
 # predict function
 def get_prediction_from_url(test_url):
