@@ -11,6 +11,7 @@ from About import about_page
 from Report import report_page
 from Contact import contact_us_page
 from Prediction import main
+from Footer import generate_footer
 
 # ------------------------------------------------------
 page_title = "PhishGuard"
@@ -38,3 +39,5 @@ elif selected == "Report":
     report_page()
 elif selected == "Contact":
     contact_us_page()
+    
+generate_footer()
