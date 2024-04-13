@@ -9,8 +9,8 @@ import os
 from pymongo import MongoClient
 from dotenv import load_dotenv
 
-load_dotenv("C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/hosting/Jojo-URL-Detection/deployment/.env")
-#load_dotenv(".env")
+#load_dotenv("C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/hosting/Jojo-URL-Detection/deployment/.env")
+load_dotenv(".env")
 
 # Connect to MongoDB
 try:
