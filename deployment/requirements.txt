@@ -7,3 +7,4 @@ streamlit_option_menu==0.3.12
 tld==0.13
 tldextract==5.1.2
 whois==1.20240129.2
+googlesearch-python==1.2.3
