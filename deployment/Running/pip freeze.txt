@@ -1,0 +1,5 @@
+pip freeze
+
+pip install pipreqs      
+
+python -m pipreqs.pipreqs "C:\Users\sayon\Downloads\ML Projects\Malicious URL Detection\hosting\Jojo-URL-Detection\deployment"
