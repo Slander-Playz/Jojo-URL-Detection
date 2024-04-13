@@ -8,6 +8,7 @@ Created on Thu Mar 14 11:44:43 2024
 
 import numpy as np
 import pickle
+import os
 from tld import get_tld
 from urllib.parse import urlparse
 import streamlit as st
@@ -683,7 +684,7 @@ def mainly(url):
 
     return status
 
-loaded_model = pickle.load(open('C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/Project2/model/trained_model.sav', 'rb'))
+loaded_model = pickle.load(open('C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/hosting/Jojo-URL-Detection/model/trained_model.sav', 'rb'))
 
 # predict function
 def get_prediction_from_url(test_url):
@@ -742,13 +743,13 @@ def get_prediction_from_url(test_url):
 from pymongo import MongoClient
 from dotenv import load_dotenv
 
-load_dotenv("C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/Project2/deployment/.env")
+load_dotenv("C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/hosting/Jojo-URL-Detection/deployment/.env")
 
 # Connect to MongoDB
 try:
-    client = MongoClient("MONGO_URI")
-    db = client["MONGO_PREDICT_DB"]
-    collection = db["MONGO_PREDICT_COLLECTION"]
+    client = MongoClient(os.getenv("MONGO_URI"))
+    db = client[os.getenv("MONGO_PREDICT_DB")]
+    collection = db[os.getenv("MONGO_PREDICT_COLLECTION")]
     connection_status = True
 except Exception as e:
     st.error(f"Failed to connect to MongoDB: {e}")

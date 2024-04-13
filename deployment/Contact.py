@@ -44,4 +44,4 @@ def contact_us_page():
      
     st.markdown(contact_form, unsafe_allow_html=True)
      
-    local_css("C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/Project2/deployment/style/style.css")
+    local_css("C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/hosting/Jojo-URL-Detection/deployment/style/style.css")

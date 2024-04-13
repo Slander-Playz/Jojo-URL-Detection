@@ -1,1 +1,1 @@
-streamlit run "C:\Users\sayon\Downloads\ML Projects\Malicious URL Detection\Project2\deployment\app.py"
+streamlit run "C:\Users\sayon\Downloads\ML Projects\Malicious URL Detection\hosting\Jojo-URL-Detection\deployment\app.py"

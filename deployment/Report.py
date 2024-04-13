@@ -9,13 +9,13 @@ import os
 from pymongo import MongoClient
 from dotenv import load_dotenv
 
-load_dotenv("C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/Project2/deployment/.env")
+load_dotenv("C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/hosting/Jojo-URL-Detection/deployment/.env")
 
 # Connect to MongoDB
 try:
     client = MongoClient(os.getenv("MONGO_URI"))
-    db = client["MONGO_REPORT_DB"]
-    collection = db["MONGO_REPORT_COLLECTION"]
+    db = client[os.getenv("MONGO_REPORT_DB")]
+    collection = db[os.getenv("MONGO_REPORT_COLLECTION")]
     connection_status = True
 except Exception as e:
     st.error(f"Failed to connect to MongoDB: {e}")
