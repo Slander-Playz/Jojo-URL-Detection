@@ -9,3 +9,4 @@ tldextract==5.1.2
 whois==1.20240129.2
 googlesearch-python==1.2.3
 scikit-learn==1.2.2
+pickle-mixin==1.0.2
