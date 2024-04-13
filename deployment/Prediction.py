@@ -684,10 +684,8 @@ def mainly(url):
 
     return status
 
-model_path = os.path.join(os.getcwd(), 'trained_model.sav')
-
 #loaded_model = pickle.load(open('C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/hosting/Jojo-URL-Detection/model/trained_model.sav', 'rb'))
-loaded_model = pickle.load(open(model_path, 'rb'))
+loaded_model = pickle.load(open('/trained_model.sav', 'rb'))
 
 # predict function
 def get_prediction_from_url(test_url):
@@ -747,7 +745,7 @@ from pymongo import MongoClient
 from dotenv import load_dotenv
 
 #load_dotenv("C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/hosting/Jojo-URL-Detection/deployment/.env")
-load_dotenv(".env")
+load_dotenv("/.env")
 
 # Connect to MongoDB
 try:
