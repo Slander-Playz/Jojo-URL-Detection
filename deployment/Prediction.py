@@ -685,16 +685,16 @@ def mainly(url):
     return status
 
 # Get the absolute path to the model file
-model_path = os.path.join(os.getcwd(), 'trained_model.sav')
+#model_path = os.path.join(os.getcwd(), 'trained_model.sav')
 
-try:
+#try:
     # Try to load the model from the absolute path
-    with open(model_path, 'rb') as f:
-        loaded_model = pickle.load(f)
-except FileNotFoundError:
-    print("Model file 'trained_model.sav' not found.")
+    #with open(model_path, 'rb') as f:
+        #loaded_model = pickle.load(f)
+#except FileNotFoundError:
+    #print("Model file 'trained_model.sav' not found.")
 
-#loaded_model = pickle.load(open('C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/hosting/Jojo-URL-Detection/model/trained_model.sav', 'rb'))
+loaded_model = pickle.load(open('C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/hosting/Jojo-URL-Detection/model/trained_model.sav', 'rb'))
 #loaded_model = pickle.load(open('trained_model.sav', 'rb'))
 
 # predict function
@@ -754,8 +754,8 @@ def get_prediction_from_url(test_url):
 from pymongo import MongoClient
 from dotenv import load_dotenv
 
-#load_dotenv("C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/hosting/Jojo-URL-Detection/deployment/.env")
-load_dotenv(".env")
+load_dotenv("C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/hosting/Jojo-URL-Detection/deployment/.env")
+#load_dotenv(".env")
 
 # Connect to MongoDB
 try:

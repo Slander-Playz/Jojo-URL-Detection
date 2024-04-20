@@ -1,0 +1,1 @@
+streamlit run "C:\Users\sayon\Downloads\ML Projects\Malicious URL Detection\hosting\Jojo-URL-Detection\deployment\extension\Prediction.py"
