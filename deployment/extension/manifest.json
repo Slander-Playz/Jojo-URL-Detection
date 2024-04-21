@@ -2,11 +2,17 @@
   "manifest_version": 3,
   "name": "Phishing Detector",
   "version": "1.0",
-  "description": "Detects phishing URLs using Streamlit backend",
-  "permissions": ["activeTab"],
+  "description": "Checks if a URL is a phishing site",
+  "permissions": ["webNavigation", "activeTab", "storage"],
   "background": {
     "service_worker": "background.js"
   },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
   "action": {
     "default_popup": "popup.html",
     "default_icon": "logo.png"

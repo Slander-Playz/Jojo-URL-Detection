@@ -1,7 +1,7 @@
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "checkUrl") {
     fetch(`http://localhost:8501/`, {
-      // Adjust the port if needed
+      mode: "no-cors",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -13,9 +13,16 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         sendResponse({ isPhishing: data.isPhishing });
       })
       .catch((error) => {
-        console.error(error);
         sendResponse({ isPhishing: false });
       });
     return true; // Required for async response
   }
+});
+
+chrome.webNavigation.onHistoryStateUpdated.addListener((details) => {
+  // Send the updated URL to the content script
+  chrome.tabs.sendMessage(details.tabId, {
+    action: "urlChanged",
+    url: details.url,
+  });
 });
