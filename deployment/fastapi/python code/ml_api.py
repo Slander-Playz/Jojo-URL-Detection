@@ -730,6 +730,42 @@ def get_prediction_from_url(test_url):
     
     return pred
 
+from pymongo import MongoClient
+from dotenv import load_dotenv
+
+load_dotenv("C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/hosting/Jojo-URL-Detection/deployment/.env")
+#load_dotenv(".env")
+
+# Connect to MongoDB
+try:
+    client = MongoClient(os.getenv("MONGO_URI"))
+    db = client[os.getenv("MONGO_PREDICT_DB")]
+    collection = db[os.getenv("MONGO_PREDICT_COLLECTION")]
+    connection_status = True
+except Exception as e:
+    connection_status = False
+    
+# Function to check if URL exists in the database and return its type
+def check_url_type(url):
+    if not connection_status:
+        return False
+    
+    result = collection.find_one({"url": url})
+    if result:
+        return result["type"]
+    else:
+        return False 
+    
+def add_url_to_database(url, url_type):
+    if not connection_status:
+        return False
+    
+    try:
+        collection.insert_one({"url": url, "type": url_type})
+        return True
+    except Exception as e:
+        return False
+
 app = FastAPI()
 
 class model_input(BaseModel):
@@ -747,10 +783,22 @@ def url_pred(input_parameters : model_input):
     
     input_list = [url]
     
-    prediction = get_prediction_from_url(url)
-    
-    if prediction[0] == 0:
-        return "SAFE"
+    url_type = check_url_type(url)
+    if url_type:
+        return f"'{url_type}'"
+    else:
+        prediction = get_prediction_from_url(url)
+        
+        if prediction[0] == 0:
+            diagnosis = "SAFE"
 
-    elif prediction[0] == 1:
-        return "PHISHING"
+        elif prediction[0] == 1:
+            diagnosis = "PHISHING"
+        
+        # Add URL and its type to the database
+        if add_url_to_database(url, diagnosis):
+            return diagnosis
+        else:
+            return "Failure"
+        
+        return diagnosis
