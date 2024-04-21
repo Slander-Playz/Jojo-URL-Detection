@@ -5,14 +5,12 @@ Created on Thu Mar 14 11:44:43 2024
 @author: sayon
 """
 
-
 import numpy as np
 import pickle
 import os
 from tld import get_tld
 from urllib.parse import urlparse
 import streamlit as st
-
 
 def get_url_length(url):
     return len(url)
@@ -696,6 +694,9 @@ def mainly(url):
 
 loaded_model = pickle.load(open('C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/hosting/Jojo-URL-Detection/model/trained_model.pkl', 'rb'))
 #loaded_model = pickle.load(open('trained_model.sav', 'rb'))
+
+#pickle_in = open("trained_model.pkl", "rb")
+#loaded_model = pickle.load(pickle_in)
 
 # predict function
 def get_prediction_from_url(test_url):
