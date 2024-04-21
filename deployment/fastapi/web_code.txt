@@ -1,0 +1,3 @@
+cd "C:\Users\sayon\Downloads\ML Projects\Malicious URL Detection\hosting\Jojo-URL-Detection\deployment\fastapi\python code"
+
+uvicorn ml_api:app
