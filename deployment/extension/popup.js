@@ -1,6 +1,7 @@
 // Function to send a POST request to a specified endpoint
 function checkUrl(url, callback) {
-  const endpoint = "http://127.0.0.1:8000/url_prediction"; // Define the endpoint
+  // const endpoint = "http://127.0.0.1:8000/url_prediction"; // Private URL
+  const endpoint = "https://addb-34-86-143-6.ngrok-free.app/url_prediction"; // // Public URL
 
   // Create the JSON object with the URL to be sent
   const input_data_for_model = {
