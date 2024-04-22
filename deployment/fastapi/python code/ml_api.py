@@ -800,5 +800,3 @@ def url_pred(input_parameters : model_input):
             return diagnosis
         else:
             return "Failure"
-        
-        return diagnosis
