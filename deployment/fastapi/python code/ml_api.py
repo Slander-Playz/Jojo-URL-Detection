@@ -774,12 +774,23 @@ class model_input(BaseModel):
 # loading the saved model
 loaded_model = pickle.load(open('trained_model.sav','rb'))
 
+def get_main_website_url(long_url):
+    # Parse the URL to extract its components
+    parsed_url = urlparse(long_url)
+
+    # Construct the main website URL
+    main_website_url = f"{parsed_url.scheme}://{parsed_url.netloc}/"
+
+    return main_website_url
+
 @app.post('/url_prediction')
 def url_pred(input_parameters : model_input):
     input_data = input_parameters.json()
     input_dictionary = json.loads(input_data)
     
     url = input_dictionary['url']
+    
+    url = get_main_website_url(url)
     
     input_list = [url]
     

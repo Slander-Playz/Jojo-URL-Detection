@@ -8,7 +8,8 @@ Created on Sun Apr 21 16:21:09 2024
 import json
 import requests
 
-urly = 'https://33bd-34-72-106-210.ngrok-free.app/url_prediction'
+#urly = "http://127.0.0.1:8000/url_prediction"; # Private URL
+urly = "https://f46b-34-74-148-138.ngrok-free.app/url_prediction"; # Public URL
 
 input_data_for_model = {
     #'url' : "https://review-related.com/update"

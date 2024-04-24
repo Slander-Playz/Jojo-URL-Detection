@@ -698,6 +698,15 @@ loaded_model = pickle.load(open('C:/Users/sayon/Downloads/ML Projects/Malicious 
 #pickle_in = open("trained_model.pkl", "rb")
 #loaded_model = pickle.load(pickle_in)
 
+def get_main_website_url(long_url):
+    # Parse the URL to extract its components
+    parsed_url = urlparse(long_url)
+
+    # Construct the main website URL
+    main_website_url = f"{parsed_url.scheme}://{parsed_url.netloc}/"
+
+    return main_website_url
+
 # predict function
 def get_prediction_from_url(test_url):
     
@@ -736,6 +745,8 @@ def get_prediction_from_url(test_url):
     
     #if(analyze_content(test_url) == 0):
         #return "PHISHING"
+          
+    test_url = get_main_website_url(test_url)
     
     features_test = mainly(test_url)
 
