@@ -692,7 +692,7 @@ def mainly(url):
 #except FileNotFoundError:
     #print("Model file 'trained_model.sav' not found.")
 
-loaded_model = pickle.load(open('C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/hosting/Jojo-URL-Detection/model/trained_model.pkl', 'rb'))
+loaded_model = pickle.load(open('C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/hosting/Jojo-URL-Detection/model/one.sav', 'rb'))
 #loaded_model = pickle.load(open('trained_model.sav', 'rb'))
 
 #pickle_in = open("trained_model.pkl", "rb")

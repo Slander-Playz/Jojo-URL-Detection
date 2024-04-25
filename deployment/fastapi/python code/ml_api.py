@@ -772,7 +772,8 @@ class model_input(BaseModel):
     url : str
 
 # loading the saved model
-loaded_model = pickle.load(open('trained_model.sav','rb'))
+loaded_model = pickle.load(open('C:/Users/sayon/Downloads/ML Projects/Malicious URL Detection/hosting/Jojo-URL-Detection/model/one.sav','rb'))
+#loaded_model = pickle.load(open('trained_model.sav','rb'))
 
 def get_main_website_url(long_url):
     # Parse the URL to extract its components
