@@ -16,12 +16,19 @@ const Featured = () => {
       alert(
         "Please enter a valid URL that starts with 'http://' or 'https://'"
       );
+      return false;
     } else {
       console.log("Valid URL:", url);
+      return true;
     }
   }
 
   const handleDetect = async () => {
+    if (!checkUrl(search)) {
+      // If the URL is invalid, stop further execution
+      return;
+    }
+
     setIsSearching(true); // Indicate loading or processing
     try {
       // var response = await getURLTypeAPI(search);
