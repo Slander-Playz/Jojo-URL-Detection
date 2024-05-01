@@ -28,7 +28,7 @@ const Footer = () => {
             </div>
             <div className="link">
               <img src="./media/accessibility.png" alt="" />
-              <span>USD</span>
+              <span>INR</span>
             </div>
           </div>
         </div>

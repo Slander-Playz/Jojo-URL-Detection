@@ -34,8 +34,9 @@ const Featured = () => {
       // var response = await getURLTypeAPI(search);
 
       // if (response.data === null) {
-      checkUrl(search);
-      var response = await getModelResultAPI(search);
+      const newSearch = search.toLowerCase();
+      checkUrl(newSearch);
+      var response = await getModelResultAPI(newSearch);
 
       //   const data = {
       //     url: search,
@@ -69,7 +70,7 @@ const Featured = () => {
               />
               <input
                 type="search"
-                placeholder={"Enter the URL"}
+                placeholder={"Paste any URL"}
                 value={search}
                 onChange={({ target: { value } }) => setSearch(value)}
                 aria-label="Search input" // Improve accessibility
