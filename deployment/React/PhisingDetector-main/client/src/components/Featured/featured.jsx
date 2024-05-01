@@ -27,7 +27,7 @@ const Featured = () => {
     // Set a timer to reset the result to "Detect" after 10 seconds
     const timer = setTimeout(() => {
       setIsResult("Detect");
-    }, 10000); // 10,000 milliseconds = 10 seconds
+    }, 7000); // 10,000 milliseconds = 10 seconds
 
     // Cleanup function to clear the timer if the component unmounts or result changes
     return () => {
