@@ -10,12 +10,24 @@ const Featured = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [result, setIsResult] = useState("Detect");
 
+  function checkUrl(url) {
+    // Check if the URL does not start with "http://" or "https://"
+    if (!url.startsWith("http://") && !url.startsWith("https://")) {
+      alert(
+        "Please enter a valid URL that starts with 'http://' or 'https://'"
+      );
+    } else {
+      console.log("Valid URL:", url);
+    }
+  }
+
   const handleDetect = async () => {
     setIsSearching(true); // Indicate loading or processing
     try {
       // var response = await getURLTypeAPI(search);
 
       // if (response.data === null) {
+      checkUrl(search);
       var response = await getModelResultAPI(search);
 
       //   const data = {
