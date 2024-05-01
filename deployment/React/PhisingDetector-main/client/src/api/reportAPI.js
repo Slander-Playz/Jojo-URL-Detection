@@ -4,7 +4,7 @@ const reportAPI = async (data) => {
   const { url, description, observation } = data;
   // console.log(data);
   return await axios
-    .post("http://localhost:8000/api/db/report/", {
+    .post("https://phish-server.onrender.com/api/db/report/", {
       // .post(`${process.env.REACT_APP_SERVER_URL}api/db/report/`, {
       url,
       description,
