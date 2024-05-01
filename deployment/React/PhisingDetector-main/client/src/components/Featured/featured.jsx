@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./featured.scss";
 
 // import getURLTypeAPI from "../../api/getURLTypeAPI";
@@ -22,6 +22,18 @@ const Featured = () => {
       return true;
     }
   }
+
+  useEffect(() => {
+    // Set a timer to reset the result to "Detect" after 10 seconds
+    const timer = setTimeout(() => {
+      setIsResult("Detect");
+    }, 10000); // 10,000 milliseconds = 10 seconds
+
+    // Cleanup function to clear the timer if the component unmounts or result changes
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [result]); // Depend on `result` to reset timer when `result` changes
 
   const handleDetect = async () => {
     if (!checkUrl(search)) {
