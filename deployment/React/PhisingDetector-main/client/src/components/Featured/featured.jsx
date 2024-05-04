@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import "./featured.scss";
 
-// import getURLTypeAPI from "../../api/getURLTypeAPI";
+import getURLTypeAPI from "../../api/getURLTypeAPI";
 import getModelResultAPI from "../../api/getModelResultAPI";
 // import datasetAPI from "../../api/datasetAPI";
 
@@ -50,21 +50,21 @@ const Featured = () => {
 
     setIsSearching(true); // Indicate loading or processing
     try {
-      // var response = await getURLTypeAPI(search);
+      var response = await getURLTypeAPI(search);
 
-      // if (response.data === null) {
-      setSearch(checkUrl(search));
-      console.log("Updated URL:", search);
-      var response = await getModelResultAPI(search);
+      if (response.data === null) {
+        setSearch(checkUrl(search));
+        console.log("Updated URL:", search);
+        response = await getModelResultAPI(search);
 
-      //   const data = {
-      //     url: search,
-      //     type: response.data,
-      //   };
+        //   const data = {
+        //     url: search,
+        //     type: response.data,
+        //   };
 
-      //   await datasetAPI(data);
-      //   alert("Added to database successfully!");
-      // }
+        //   await datasetAPI(data);
+        //   alert("Added to database successfully!");
+      }
       if (response.message && response.message === "Network Error")
         setIsResult("PHISHING");
       else setIsResult(response);

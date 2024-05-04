@@ -14,7 +14,7 @@ const getModelResultAPI = async (url) => {
     console.log("InputJSON" + inputJson);
 
     const response = await axios.post(
-      "https://15da-35-234-55-80.ngrok-free.app/url_prediction", // The public URL provided
+      "https://7e01-35-234-55-80.ngrok-free.app/url_prediction", // The public URL provided
       inputJson, // Sending JSON as data
       {
         headers: {
