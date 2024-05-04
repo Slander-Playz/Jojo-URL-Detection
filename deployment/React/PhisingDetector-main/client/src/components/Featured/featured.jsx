@@ -29,7 +29,7 @@ const Featured = () => {
       console.log("No 'www.' to remove:", url);
     }
 
-    return true;
+    return url;
   }
 
   useEffect(() => {
@@ -55,7 +55,7 @@ const Featured = () => {
       // var response = await getURLTypeAPI(search);
 
       // if (response.data === null) {
-      checkUrl(search);
+      setSearch(checkUrl(search));
       var response = await getModelResultAPI(search);
 
       //   const data = {
