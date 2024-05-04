@@ -11,16 +11,25 @@ const Featured = () => {
   const [result, setIsResult] = useState("Detect");
 
   function checkUrl(url) {
-    // Check if the URL does not start with "http://" or "https://"
+    // Check if the URL starts with "http://" or "https://"
     if (!url.startsWith("http://") && !url.startsWith("https://")) {
       alert(
         "Please enter a valid URL that starts with 'http://' or 'https://'"
       );
       return false;
-    } else {
-      console.log("Valid URL:", url);
-      return true;
     }
+
+    // Check and remove "www." if it's after "http://" or "https://"
+    const wwwPattern = /^(https?:\/\/)www\./;
+
+    if (wwwPattern.test(url)) {
+      url = url.replace(wwwPattern, "$1"); // Remove "www." from the URL
+      console.log("Removed 'www.' from URL:", url);
+    } else {
+      console.log("No 'www.' to remove:", url);
+    }
+
+    return true;
   }
 
   useEffect(() => {
