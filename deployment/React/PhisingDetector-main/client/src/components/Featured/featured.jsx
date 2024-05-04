@@ -54,9 +54,9 @@ const Featured = () => {
       console.log(response);
 
       if (response.data === null) {
-        setSearch(checkUrl(search));
-        console.log("Updated URL:", search);
-        response = await getModelResultAPI(search);
+        const newURL = checkUrl(search);
+        console.log("Updated URL:", newURL);
+        response = await getModelResultAPI(newURL);
 
         //   const data = {
         //     url: search,
