@@ -11,7 +11,7 @@ const Featured = () => {
   const [result, setIsResult] = useState("Detect");
 
   function checkUrl(url) {
-    // Check if the URL starts with "http://" or "https://"
+    // Check if the URL does not start with "http://" or "https://"
     if (!url.startsWith("http://") && !url.startsWith("https://")) {
       alert(
         "Please enter a valid URL that starts with 'http://' or 'https://'"
@@ -19,16 +19,14 @@ const Featured = () => {
       return false;
     }
 
-    // Check and remove "www." if it's after "http://" or "https://"
-    const wwwPattern = /^(https?:\/\/)www\./;
-
-    if (wwwPattern.test(url)) {
-      url = url.replace(wwwPattern, "$1"); // Remove "www." from the URL
-      console.log("Removed 'www.' from URL:", url);
-    } else {
-      console.log("No 'www.' to remove:", url);
+    // Check for "http://www." or "https://www." at the beginning and remove "www."
+    if (url.startsWith("http://www.")) {
+      url = "http://" + url.substring(11); // Keep "http://" and remove "www."
+    } else if (url.startsWith("https://www.")) {
+      url = "https://" + url.substring(12); // Keep "https://" and remove "www."
     }
 
+    console.log("Valid URL (without 'www.'):", url);
     return url;
   }
 
