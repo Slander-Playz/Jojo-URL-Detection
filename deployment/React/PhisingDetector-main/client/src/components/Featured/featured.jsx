@@ -66,7 +66,7 @@ const Featured = () => {
       //   alert("Added to database successfully!");
       // }
       if (response.message && response.message === "Network Error")
-        setIsResult(response.message);
+        setIsResult("PHISHING");
       else setIsResult(response);
       console.log("API response:", response);
     } catch (err) {
