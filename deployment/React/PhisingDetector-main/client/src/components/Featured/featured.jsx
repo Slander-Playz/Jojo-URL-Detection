@@ -64,11 +64,14 @@ const Featured = () => {
 
         //   await datasetAPI(data);
         //   alert("Added to database successfully!");
+        if (response.message && response.message === "Network Error")
+          setIsResult("PHISHING");
+        else setIsResult(response);
+        console.log("API response:", response);
+      } else {
+        setIsResult(response.data);
+        console.log("API response:", response.data);
       }
-      if (response.message && response.message === "Network Error")
-        setIsResult("PHISHING");
-      else setIsResult(response);
-      console.log("API response:", response);
     } catch (err) {
       console.error("Error in detection:", err);
       alert("An unexpected error occurred while detecting URL type.");
