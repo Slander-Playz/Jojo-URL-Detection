@@ -66,7 +66,9 @@ const Featured = () => {
       //   await datasetAPI(data);
       //   alert("Added to database successfully!");
       // }
-      setIsResult(response);
+      if (response.message && response.message === "Network Error")
+        setIsResult(response.message);
+      else setIsResult(response);
       console.log("API response:", response);
     } catch (err) {
       console.error("Error in detection:", err);
