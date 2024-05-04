@@ -69,6 +69,7 @@ const Featured = () => {
         else setIsResult(response);
         console.log("API response:", response);
       } else {
+        console.log("Got from database");
         setIsResult(response.data);
         console.log("API response:", response.data);
       }
