@@ -51,6 +51,7 @@ const Featured = () => {
     setIsSearching(true); // Indicate loading or processing
     try {
       var response = await getURLTypeAPI(search);
+      console.log(response);
 
       if (response.data === null) {
         setSearch(checkUrl(search));
