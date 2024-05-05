@@ -19,15 +19,15 @@ const Featured = () => {
       return false;
     }
 
-    // Check for "http://www." or "https://www." at the beginning and remove "www."
-    if (url.startsWith("http://www.")) {
-      url = "http://" + url.substring(11); // Keep "http://" and remove "www."
-    } else if (url.startsWith("https://www.")) {
-      url = "https://" + url.substring(12); // Keep "https://" and remove "www."
-    }
+    // // Check for "http://www." or "https://www." at the beginning and remove "www."
+    // if (url.startsWith("http://www.")) {
+    //   url = "http://" + url.substring(11); // Keep "http://" and remove "www."
+    // } else if (url.startsWith("https://www.")) {
+    //   url = "https://" + url.substring(12); // Keep "https://" and remove "www."
+    // }
 
-    console.log("Valid URL (without 'www.'):", url);
-    return url;
+    // console.log("Valid URL (without 'www.'):", url);
+    return true;
   }
 
   useEffect(() => {
@@ -54,9 +54,9 @@ const Featured = () => {
       console.log(response);
 
       if (response.data === null) {
-        const newURL = checkUrl(search);
-        console.log("Updated URL:", newURL);
-        response = await getModelResultAPI(newURL);
+        // const newURL = checkUrl(search);
+        // console.log("Updated URL:", newURL);
+        response = await getModelResultAPI(search);
 
         //   const data = {
         //     url: search,
