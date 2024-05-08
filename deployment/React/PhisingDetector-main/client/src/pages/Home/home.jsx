@@ -213,7 +213,7 @@ const Home = () => {
                 <p>
                   <strong>Email:</strong>{" "}
                   <a href="sourav.20214056@mnnit.ac.in">
-                    sourav.20214056@mnnit.ac.in
+                    contact@phishguard.com
                   </a>
                 </p>
                 <p>
