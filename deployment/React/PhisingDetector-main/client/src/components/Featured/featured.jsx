@@ -50,30 +50,31 @@ const Featured = () => {
 
     setIsSearching(true); // Indicate loading or processing
     try {
-      var response = await getURLTypeAPI(search);
-      console.log(response);
+      // var response = await getURLTypeAPI(search);
+      // console.log(response);
 
-      if (response.data === null) {
-        // const newURL = checkUrl(search);
-        // console.log("Updated URL:", newURL);
-        response = await getModelResultAPI(search);
+      // if (response.data === null) {
+      // const newURL = checkUrl(search);
+      // console.log("Updated URL:", newURL);
+      const response = await getModelResultAPI(search);
 
-        //   const data = {
-        //     url: search,
-        //     type: response.data,
-        //   };
+      //   const data = {
+      //     url: search,
+      //     type: response.data,
+      //   };
 
-        //   await datasetAPI(data);
-        //   alert("Added to database successfully!");
-        if (response.message && response.message === "Network Error")
-          setIsResult("PHISHING");
-        else setIsResult(response);
-        console.log("API response:", response);
-      } else {
-        console.log("Got from database");
-        setIsResult(response.data);
-        console.log("API response:", response.data);
-      }
+      //   await datasetAPI(data);
+      //   alert("Added to database successfully!");
+      if (response === "Network Error") setIsResult("PHISHING");
+      else if (response.message && response.message === "Network Error")
+        setIsResult("PHISHING");
+      else setIsResult(response);
+      console.log("API response:", response);
+      // } else {
+      //   console.log("Got from database");
+      //   setIsResult(response.data);
+      //   console.log("API response:", response.data);
+      // }
     } catch (err) {
       console.error("Error in detection:", err);
       alert("An unexpected error occurred while detecting URL type.");
