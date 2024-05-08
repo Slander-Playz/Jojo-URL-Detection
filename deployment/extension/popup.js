@@ -1,7 +1,7 @@
 // Function to send a POST request to a specified endpoint
 function checkUrl(url, callback) {
   // const endpoint = "http://127.0.0.1:8000/url_prediction"; // Private URL
-  const endpoint = "https://bca6-35-189-182-68.ngrok-free.app/url_prediction"; // Public URL
+  const endpoint = "https://5408-35-189-182-68.ngrok-free.app/url_prediction"; // Public URL
 
   // console.log(url);
 
