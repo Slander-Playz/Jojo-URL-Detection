@@ -1,7 +1,9 @@
 // Function to send a POST request to a specified endpoint
 function checkUrl(url, callback) {
   // const endpoint = "http://127.0.0.1:8000/url_prediction"; // Private URL
-  const endpoint = "https://2a19-34-29-128-25.ngrok-free.app/url_prediction"; // Public URL
+  const endpoint = "https://cc68-35-204-230-64.ngrok-free.app/url_prediction"; // Public URL
+
+  // console.log(url);
 
   // Create the JSON object with the URL to be sent
   const input_data_for_model = {
@@ -34,6 +36,8 @@ chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
   const activeTabUrl = tabs[0].url;
 
   checkUrl(activeTabUrl, (result) => {
+    if (result === "Internal Server Error") result = "Phishing";
+
     // Display the result in the popup
     document.getElementById("result").innerText = "Result: " + result;
   });
