@@ -65,8 +65,7 @@ const Featured = () => {
 
       //   await datasetAPI(data);
       //   alert("Added to database successfully!");
-      if (response === "Network Error") setIsResult("PHISHING");
-      else if (response.message && response.message === "Network Error")
+      if (response.message && response.message === "Network Error")
         setIsResult("PHISHING");
       else setIsResult(response);
       console.log("API response:", response);
